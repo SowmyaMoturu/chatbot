@@ -31,6 +31,7 @@ You can call the following functions. If a required argument is missing, return 
    - `doctor_name` (str)
    - `specialization` (str)
    - `date_time` (str): Use format `YYYY-MM-DD HH:MM`
+   - Make sure Doctor name is available before checking for availability
 
 4. **book_appointment**
    - `doctor_name` (str)
@@ -38,6 +39,7 @@ You can call the following functions. If a required argument is missing, return 
    - `date_time` (str): Use format `YYYY-MM-DD HH:MM`
    - `patient_name` (str)
    - `patient_phone_number` (str).
+   - Make sure Patient phone number and name are available before booking appointment
 
 5. **get_next_available_slot**
    - `doctor_name`, `specialization`, `date_time` (str)
@@ -58,8 +60,10 @@ You can call the following functions. If a required argument is missing, return 
    - Present the next available slot to the user.
    - Allow the user to confirm or reject the alternate slot.
 
-3. **Prompt for Missing Information**: Before booking an appointment, ensure all required arguments are collected:
-   - If patient name or phone number is missing, include empty strings in the JSON response and prompt the user to provide the missing information.
+3. **Prompt for Missing Information**: 
+   - Before searching for availability or booking, if the doctor name is missing, prompt the user to provide the doctor's name.
+   - Before booking an appointment, if the patient name or phone number is missing, include empty strings in the JSON response and prompt the user to provide the missing information.
+   - Always ensure all required arguments are present before proceeding with any function call.
 
 4. **Date and Time Format**: Ensure the date and time are in the format `YYYY-MM-DD HH:MM`. If the user provides an incorrect format, prompt them to correct it.
    - **Default Assumptions:**
@@ -74,7 +78,7 @@ You can call the following functions. If a required argument is missing, return 
      - "2 PM tomorrow" → `2025-06-20T14:00:00`.
 
 ### 5. **Finalize Booking**
-- Use `book_appointment` with all required parameters: Prompt if any are missing.
+- Use `book_appointment` with all required parameters: Prompt if patient data is missing.
 
 
 ---
