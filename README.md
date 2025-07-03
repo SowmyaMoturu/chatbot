@@ -17,16 +17,12 @@ The Doctor Assistant Chatbot is an intelligent system designed to assist users i
 ## Technologies Used
 - **Backend**:
   - Python
-  - Flask
-  - SQLAlchemy
   - PostgreSQL
 - **AI Integration**:
   - OpenAI GPT-4o
 - **Frontend**:
   - Streamlit (optional for UI)
 - **Other Libraries**:
-  - FastAPI
-  - Pydantic
   - psycopg2
 
 ---
